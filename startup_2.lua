@@ -9,7 +9,7 @@ local turbine_1,turbine_2,turbine_3,turbine_4,turbine_5,turbine_6 = "","","","",
 
 function console(message)
   heure = tostring(os.time())
-  print("["..heure"] "..message)
+  print("["..heure.."] "..message)
 end
 
 function receive()
