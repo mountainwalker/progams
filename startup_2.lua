@@ -1,7 +1,9 @@
 local mode = 0
 rednet.open("top")
 modem = peripheral.wrap("top")
-local status = {1,1,1,2,2,2}
+local status = {[1]=1,[2]=1,[3]=1,[4]=2,[5]=2,[6]=2}
+local RPM-1 = {[1]=0,[2]=0,[3]=0,[4]=0,[5]=0,[6]=0}
+local RPM_vars = {[1]=0,[2]=0,[3]=0,[4]=0,[5]=0,[6]=0}
 --mode 0 mode normal
 --mode 2 mode economie
 --mode 1 mode boost
@@ -44,7 +46,7 @@ end
 function adjust()
   while (mode == 1) do
     for (i=1,6) do
-	  local PeripheralName = "turbine_"..tostring(i)
+      local PeripheralName = "turbine_"..tostring(i)
       local RPM = modem.callRemote(PeripheralName,getRotorSpeed())
 	  if (RPM <= 1750)then
 	    if (RPM <= 1600) then
