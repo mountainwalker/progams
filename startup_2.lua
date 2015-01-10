@@ -2,7 +2,7 @@ local mode = 0
 rednet.open("top")
 modem = peripheral.wrap("top")
 local status = {[1]=1,[2]=1,[3]=1,[4]=2,[5]=2,[6]=2}
-local RPM-1 = {[1]=0,[2]=0,[3]=0,[4]=0,[5]=0,[6]=0}
+local RPM_1 = {[1]=0,[2]=0,[3]=0,[4]=0,[5]=0,[6]=0}
 local RPM_vars = {[1]=0,[2]=0,[3]=0,[4]=0,[5]=0,[6]=0}
 --mode 0 mode normal
 --mode 2 mode economie
@@ -27,7 +27,7 @@ function receive()
 end
 
 function change()
-  for (i=1,6) do
+  for i=1,6 do
 	local PeripheralName = "turbine_"..tostring(i)
 	if (status[i] = 1) then	
 	  modem.callRemote(PeripheralName, setInductorEngaged(false))
